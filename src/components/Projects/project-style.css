@@ -1,0 +1,72 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    padding: 16px;
+}
+
+.grid-item {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+    /* Use flexbox to manage layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%; /* Ensure full height of card */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    max-width: 300px; /* Set maximum width */
+    max-height: 200px; /* Set maximum height */
+    border-radius: 8px;
+    margin-bottom: 16px;
+    object-fit: cover; /* Ensure the image covers the element without distortion */
+}
+
+.grid-item h2 {
+    margin: 0 0 8px 0; /* Adjust heading margin */
+}
+
+.description-container {
+    /* Add container for description to handle overflow better */
+    flex: 1;
+    overflow: hidden;
+    /* Set maximum height for description container */
+    max-height: 80px; /* Adjust height as needed */
+    margin-bottom: 16px; /* Add space below description */
+    display: flex;
+    flex-direction: column;
+}
+
+.description-container p {
+    margin: 0; /* Remove default margin to avoid extra spacing */
+
+}
+
+.grid-item p {
+    text-align: left; /* Align text to the left for better readability */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* For multiple lines of text */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* Adjust number of lines as needed */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Ensuring text color is black */
+* {
+    color: black !important;
+}

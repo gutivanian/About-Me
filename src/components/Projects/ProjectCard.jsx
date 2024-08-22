@@ -1,13 +1,15 @@
-// Posts.js
-import React from "react";
+// ProjectCard.js
+import React from 'react';
 
 const ProjectCard = ({ postsToRender }) => {
   return (
-    <div>
+    <div className="grid-container">
       {postsToRender.map((post, index) => (
-        <div key={index} className="post">
+        <div key={index} className="grid-item">
+          <img src={post.image} alt={post.title} className="project-image" />
           <h2>{post.title}</h2>
-          <p>{post.content}</p>
+          <p>{post.description}</p>
+          <p><strong>Programs Used:</strong> {post.program}</p>
         </div>
       ))}
     </div>
