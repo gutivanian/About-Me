@@ -28,11 +28,11 @@ const Footer = () => {
             </Row>
             <Row>
             <ul className="social-icons">
-                <li><a href="" className="social-icon"> <i className="fab fa-facebook icon fb-footer"></i></a></li>
-                <li><a href="" className="social-icon"> <i className="fab fa-instagram icon ig-footer"></i></a></li>
-                <li><a href="" className="social-icon"> <i className="fab fa-twitter icon tw-footer"></i></a></li>
-                <li><a href="" className="social-icon"> <i className="fab fa-linkedin icon li-footer"></i></a></li>
-                <li><a href="" className="social-icon"> <i className="fab fa-github icon gh-footer"></i></a></li>
+                <li><a href="https://facebook.com/starefondofne" className="social-icon"> <i className="fab fa-facebook icon fb-footer"></i></a></li>
+                <li><a href="https://www.instagram.com/gutivanian/" className="social-icon"> <i className="fab fa-instagram icon ig-footer"></i></a></li>
+                <li><a href="http://x.com/gutivanian" className="social-icon"> <i className="fab fa-twitter icon tw-footer"></i></a></li>
+                <li><a href="https://id.linkedin.com/in/gutivan-alief-syahputra-47b69318b" className="social-icon"> <i className="fab fa-linkedin icon li-footer"></i></a></li>
+                <li><a href="http://github.com/gutivanian" className="social-icon"> <i className="fab fa-github icon gh-footer"></i></a></li>
             </ul>
             </Row>
           </Col>

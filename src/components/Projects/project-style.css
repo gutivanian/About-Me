@@ -5,64 +5,142 @@
     padding: 16px;
 }
 
+
 .grid-item {
-    background: #f0f0f0;
+    background: linear-gradient(to bottom, white, #e6e6fa, #483d8b) !important;
     border: 1px solid #ccc;
     padding: 16px;
     border-radius: 8px;
     text-align: center;
-    /* Use flexbox to manage layout */
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%; /* Ensure full height of card */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .project-image {
-    width: 100%;
-    height: auto;
-    max-width: 300px; /* Set maximum width */
-    max-height: 200px; /* Set maximum height */
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain the aspect ratio */
+    max-height: 200px; /* Limit maximum height */
     border-radius: 8px;
     margin-bottom: 16px;
-    object-fit: cover; /* Ensure the image covers the element without distortion */
+    object-fit: cover; /* Cover the div without distorting the image */
 }
 
 .grid-item h2 {
-    margin: 0 0 8px 0; /* Adjust heading margin */
+    margin: 0 0 8px 0;
+    text-align: center; /* Center align the project title */
+}
+
+.card-title{
+    text-align: center !important;
+    font-size: 1.5rem !important;
+    font-weight: 900 !important;
 }
 
 .description-container {
-    /* Add container for description to handle overflow better */
     flex: 1;
     overflow: hidden;
-    /* Set maximum height for description container */
     max-height: 80px; /* Adjust height as needed */
-    margin-bottom: 16px; /* Add space below description */
+    margin-bottom: 16px; /* Space below the description */
     display: flex;
     flex-direction: column;
 }
 
 .description-container p {
-    margin: 0; /* Remove default margin to avoid extra spacing */
-
-}
-
-.grid-item p {
-    text-align: left; /* Align text to the left for better readability */
+    margin: 0;
+    text-align: justify;
     overflow: hidden;
     text-overflow: ellipsis;
-    /* For multiple lines of text */
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3; /* Adjust number of lines as needed */
+    color: aliceblue !important;
+    -webkit-line-clamp: 6; /* Adjust number of lines as needed for large screens */
 }
 
-/* Media queries for responsiveness */
 @media (max-width: 768px) {
     .grid-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Full width on small screens */
+    }
+
+    .description-container p {
+        -webkit-line-clamp: 3; /* Increase number of lines for small screens */
     }
 }
 
+.projects{
+    margin: 3rem !important;
+    align-items: center !importants
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+.projects .project-heading{
+    text-align: center !important;
+    margin-bottom: 2rem !important;
+    color: var(--dark-blue4) !important;
+}
+
+.project-card {
+    background: linear-gradient(270deg, 
+    rgba(79, 203, 205, 0.8),  /* #4fcbcd dengan opasitas 80% */
+    rgba(59, 148, 183, 0.8),  /* #3b94b7 dengan opasitas 80% */
+    rgba(30, 85, 179, 0.8),   /* #1e55b3 dengan opasitas 80% */
+    rgba(67, 30, 179, 0.8),   /* #431eb3 dengan opasitas 80% */
+    rgba(30, 5, 73, 0.8)); 
+    background-size: 1000% 1000% !important;
+
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+    padding: 2rem !important;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+#project-demo{
+    background: #89e0c7;
+    color: #483d8b !important;
+}
+
+#project-demo:hover{
+    background: #06196b !important;
+    color: #89e0c7 !important;
+}
+
+#project-demo:active{
+    background: #06196b !important;
+    color: #89e0c7 !important;
+    transform: scale(0.9);
+}
+
+#project-source{
+    background: #df8df3;
+    color: #483d8b !important;
+}
+
+#project-source:hover{
+    background: #06196b !important;
+    color: #cd89e0 !important;
+}
+
+#project-source:active{
+    background: #06196b !important;
+    color: #cd89e0 !important;
+    transform: scale(0.9);
+}

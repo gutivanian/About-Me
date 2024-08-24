@@ -17,10 +17,10 @@ function Typing() {
           }}
           onInit={(typewriter) => {
             typewriter
-              .typeString("Hope You Enjoyed Reading This Blog")
+              .typeString("Thanks for visiting")
               .pauseFor(1500)
               .deleteAll()
-              .typeString("I'm Indonesian, I'm Currently Interested In")
+              .typeString("I'm Currently Interested In")
               .pauseFor(1500)
               .callFunction(() => {
                 setFirstTypewriterDone(true);
@@ -33,10 +33,12 @@ function Typing() {
         <Typewriter
           options={{
             strings: [
-              "Web Developer",
-              "MERN Developer",
-              "Data Scientist",
-              "Data Analyst",
+              "Theoretical Physics",
+              "Big Data Engineering",
+              "Deep Learning",
+              "Web Development",
+              "Blockchain Development",
+              "Computational Engineering",
             ],
             autoStart: true,
             loop: true,

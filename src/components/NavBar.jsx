@@ -6,13 +6,28 @@ import { IoHomeOutline,IoPersonOutline ,IoNewspaper    } from "react-icons/io5";
 import { GrBlog } from "react-icons/gr";
 import { PiProjectorScreenChartBold } from "react-icons/pi";
 import logo from "../assets/logo-gutivanian.png" ;
+import React, { useState, useEffect } from 'react';
 
 function NavBar(){
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 0);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return(
         <Navbar 
         expand="xl" 
-        className="fixed-top nav-blur">
+        className={`fixed-top ${isScrolled ? 'scrolled' : ''}`}
+        >
             <Container>
                 <Navbar.Brand href="#Home">
                     <img src={logo} className="img-fluid logo" alt="brand" />
@@ -66,19 +81,19 @@ function NavBar(){
                             </Nav.Link>
                         </Nav.Item> */}
                         <NavDropdown title = "Follow Me" id = "basic-nav-dropdown">
-                            <NavDropdown.Item>
+                            <NavDropdown.Item href="http://github.com/gutivanian" target="_blank" rel="noopener noreferrer">
                                 Github
                             </NavDropdown.Item>
-                            <NavDropdown.Item>
+                            <NavDropdown.Item href="https://id.linkedin.com/in/gutivan-alief-syahputra-47b69318b" target="_blank" rel="noopener noreferrer">
                                 Linked In
                             </NavDropdown.Item>
-                            <NavDropdown.Item>
+                            <NavDropdown.Item href="https://facebook.com/starefondofne" target="_blank" rel="noopener noreferrer">
                                 Facebook
                             </NavDropdown.Item>
-                            <NavDropdown.Item>
+                            <NavDropdown.Item href="https://www.instagram.com/gutivanian/" target="_blank" rel="noopener noreferrer">
                                 Instagram
                             </NavDropdown.Item>
-                            <NavDropdown.Item>
+                            <NavDropdown.Item href="http://x.com/gutivanian" target="_blank" rel="noopener noreferrer">
                                 Twitter
                             </NavDropdown.Item>
                         </NavDropdown>

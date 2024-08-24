@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import ProjectCard from "./ProjectCard";
-import project from "./projectArray";
-import "./project-style.css";
+import React, { useState, useEffect } from 'react';
+import ProjectCard from './ProjectCard';
+import project from './projectArray';
+import { Container, Button } from 'react-bootstrap';
+import './project-style.css'
 
 const postsPerPage = 3;
 
@@ -24,42 +25,34 @@ const Project = () => {
       setPostsToShow((prevPosts) => [...prevPosts, ...newPosts]);
       setNext(endIndex);
     } else {
-      setHasMore(false); // No more posts to load
+      setHasMore(false);
     }
-    setShowLess(true); // Show less button should be available
+    setShowLess(true);
   };
 
   const handleShowLessPosts = () => {
     const reducedPosts = postsToShow.slice(0, postsToShow.length - postsPerPage);
     setPostsToShow(reducedPosts);
     setNext(reducedPosts.length);
-    setHasMore(true); // Always set hasMore to true when showing less
-    setShowLess(reducedPosts.length > postsPerPage); // Show less button should only appear if there are more posts to show
+    setHasMore(true);
+    setShowLess(reducedPosts.length > postsPerPage);
   };
 
   return (
-    <div>
-      <div className="grid-container">
-        {postsToShow.map((item, index) => (
-          <div className="grid-item" key={index}>
-            <img src={item.image} alt={item.title} className="project-image" />
-            <h2>{item.title}</h2>
-            <p>{item.description}</p>
-            <p><strong>Program:</strong> {item.program}</p>
-          </div>
-        ))}
-      </div>
-      {hasMore && (
-        <button onClick={handleShowMorePosts}>
-          Load more
-        </button>
-      )}
-      {showLess && (
-        <button onClick={handleShowLessPosts}>
-          Show less
-        </button>
-      )}
+    <>
+    <div className='projects'>
+    <h1 className="project-heading">
+          <strong className="main-name">Projects </strong>
+    </h1>
     </div>
+    <Container>
+      <ProjectCard postsToRender={postsToShow} />
+      <div className="text-center mt-4">
+  {hasMore && <Button variant="primary" onClick={handleShowMorePosts} className="me-3">Load more</Button>}
+  {showLess && <Button variant="secondary" onClick={handleShowLessPosts}>Show less</Button>}
+</div>
+    </Container>
+    </>
   );
 };
 

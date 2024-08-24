@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Container, Row, Col, ButtonGroup, Button } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col, ButtonGroup, Button , Dropdown} from "react-bootstrap";
 import Aboutcard from "./AboutCard";
-import ImageSlider from "./ImageSlider";
 import SkillButtons from "./SkillButtons";
+import ImageSlider from "./ImageSlider";
 import { FaDownload } from "react-icons/fa";
 import cvid from "../../assets/CV-id.pdf";
 import img1 from "../../assets/about-1.jpeg";
@@ -34,6 +34,26 @@ const images = [
 function About() {
   const [skill, setSkill] = useState("prolang");
   const [activeButton, setActiveButton] = useState("prolang");
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
+
+  const skillLabels = {
+    prolang: "Programming Languages",
+    tool: "Tools",
+    danal: "Data Analysis",
+    fullstack: "Fullstack"
+  };
+  
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleButtonClick = (skillName) => {
     setSkill(skillName);
@@ -51,17 +71,19 @@ function About() {
             <Aboutcard />
           </Col>
           <Col md={5} style={{ paddingTop: "25px", paddingBottom: "0px" }} className="about-img">
-            <Row className="about-img-row">
-              <div className="about-img-container">
-                <ImageSlider>
-                  {images.map((image, index) => (
-                    <img key={index} src={image.imgURL} alt={image.imgAlt} />
-                  ))}
-                </ImageSlider>
-              </div>
-            </Row>
+            {!isSmallScreen && (<Row className="about-img-row">
+              
+                <div className="about-img-container">
+                  <ImageSlider>
+                    {images.map((image, index) => (
+                      <img key={index} src={image.imgURL} alt={image.imgAlt} />
+                    ))}
+                  </ImageSlider>
+                </div>
+              
+            </Row>)}
             <Row>
-              <div className="cv">
+              <div className="cv mb-5">
                 <h2 className="main-name">
                   More info <span className="underlined">about me</span>
                 </h2>
@@ -76,44 +98,59 @@ function About() {
           Professional <strong className="main-name">Skillset </strong>
         </h1>
         <div className="skill-button">
-          <ButtonGroup aria-label="Basic example" className="py-6 mb-2 skill-button" size="lg">
-            <Button
-              variant="secondary"
-              className={activeButton === "prolang" ? "skill-active" : ""}
-              onClick={() => handleButtonClick("prolang")}
-            >
-              <span>
-                Programming Languages
-              </span><i></i>
-            </Button>
-            <Button
-              variant="secondary"
-              className={activeButton === "tool" ? "skill-active" : ""}
-              onClick={() => handleButtonClick("tool")}
-            >
-              <span>
-                Tools
-              </span> <i></i>
-            </Button>
-            <Button
-              variant="secondary"
-              className={activeButton === "danal" ? "skill-active" : ""}
-              onClick={() => handleButtonClick("danal")}
-            >
-              <span>
-                Data Analysis
-              </span> <i></i>
-            </Button>
-            <Button
-              variant="secondary"
-              className={activeButton === "fullstack" ? "skill-active" : ""}
-              onClick={() => handleButtonClick("fullstack")}
-            >
-              <span>
-                Fullstack
-              </span><i></i>
-            </Button>
-          </ButtonGroup>
+{isSmallScreen ? (
+  <Dropdown as={ButtonGroup}>
+  <Button variant="secondary" className="skill-active skill-dropdown"><span>{skillLabels[skill]}</span><i></i></Button>
+  <Dropdown.Toggle split variant="secondary" id="dropdown-split-basic" />
+  <Dropdown.Menu className="skill-button">
+    <Dropdown.Item onClick={() => handleButtonClick("prolang")}>Programming Languages</Dropdown.Item>
+    <Dropdown.Item onClick={() => handleButtonClick("tool")}>Tools</Dropdown.Item>
+    <Dropdown.Item onClick={() => handleButtonClick("danal")}>Data Analysis</Dropdown.Item>
+    <Dropdown.Item onClick={() => handleButtonClick("fullstack")}>Fullstack</Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown>
+
+) : (
+  <ButtonGroup aria-label="Basic example" className="py-6 mb-2 skill-button" size="lg">
+  <Button
+    variant="secondary"
+    className={activeButton === "prolang" ? "skill-active" : ""}
+    onClick={() => handleButtonClick("prolang")}
+  >
+    <span>
+      Programming Languages
+    </span><i></i>
+  </Button>
+  <Button
+    variant="secondary"
+    className={activeButton === "tool" ? "skill-active" : ""}
+    onClick={() => handleButtonClick("tool")}
+  >
+    <span>
+      Tools
+    </span> <i></i>
+  </Button>
+  <Button
+    variant="secondary"
+    className={activeButton === "danal" ? "skill-active" : ""}
+    onClick={() => handleButtonClick("danal")}
+  >
+    <span>
+      Data Analysis
+    </span> <i></i>
+  </Button>
+  <Button
+    variant="secondary"
+    className={activeButton === "fullstack" ? "skill-active" : ""}
+    onClick={() => handleButtonClick("fullstack")}
+  >
+    <span>
+      Fullstack
+    </span><i></i>
+  </Button>
+</ButtonGroup>
+)}
+
         </div>
         <SkillButtons skill={skill} />
       </Container>

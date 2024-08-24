@@ -51,7 +51,7 @@ function Page1() {
                   <ul className="home-about-social-links">
                     <li className="social-icons">
                       <a
-                        href="https://github.com/soumyajit4419"
+                        href="http://github.com/gutivanian"
                         target="_blank"
                         rel="noreferrer"
                         className="icon-colour  home-social-icons"
@@ -61,7 +61,7 @@ function Page1() {
                     </li>
                     <li className="social-icons">
                       <a
-                        href="https://twitter.com/Soumyajit4419"
+                        href="https://facebook.com/starefondofne"
                         target="_blank"
                         rel="noreferrer"
                         className="icon-colour  home-social-icons"
@@ -71,7 +71,7 @@ function Page1() {
                     </li>
                     <li className="social-icons">
                       <a
-                        href="https://twitter.com/Soumyajit4419"
+                        href="http://x.com/gutivanian"
                         target="_blank"
                         rel="noreferrer"
                         className="icon-colour  home-social-icons"
@@ -81,7 +81,7 @@ function Page1() {
                     </li>
                     <li className="social-icons">
                       <a
-                        href="https://www.linkedin.com/in/soumyajit4419/"
+                        href="https://id.linkedin.com/in/gutivan-alief-syahputra-47b69318b"
                         target="_blank"
                         rel="noreferrer"
                         className="icon-colour  home-social-icons"
@@ -91,7 +91,7 @@ function Page1() {
                     </li>
                     <li className="social-icons">
                       <a
-                        href="https://www.instagram.com/soumyajit4419"
+                        href="https://www.instagram.com/gutivanian/"
                         target="_blank"
                         rel="noreferrer"
                         className="icon-colour home-social-icons"
